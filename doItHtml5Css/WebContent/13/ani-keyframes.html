@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Transform</title>
+<style>
+	#div1{
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+	}
+	#div1:active {
+		-webkit-animation-name: change-bg;
+		-moz-animation-name: change-bg;
+		-o-animation-name: change-bg;
+		animation-name: change-bg;
+		-webkit-animation-duration: 3s;
+		-moz-animation-duration: 3s;
+		-o-animation-duration: 3s;
+		animation-duration: 3s;
+	}
+	
+	#div2{
+		margin:5px;
+		width: 100px;
+		height: 100px;
+		background-color: yellow;
+		border-radius:50%;
+	}
+	#div2:active {
+		animation-name: change-bg2;
+		animation-duration: 1s;
+	}
+	
+	
+	@-webkit-keyframes change-bg{
+		from {
+			background-color:blue;
+			border:1px solid black;
+		}
+		to {
+			background-color:#a5d6ff;
+			border-radius:50%;
+		}
+	}
+	@-moz-keyframes change-bg {
+		from {
+			background-color: blue;
+			border: 1px solid black;
+		}
+		to {
+			background-color: #a5d6ff;
+			border-radius: 50%;
+		}
+	}
+	@-o-keyframes change-bg {
+		from {
+			background-color: blue;
+			border: 1px solid black;
+		}
+		to {
+			background-color: #a5d6ff;
+			border-radius: 50%;
+		}
+	}
+	@keyframes change-bg {
+		from {
+			background-color: blue;
+			border: 1px solid black;
+		}
+		to {
+			background-color: #a5d6ff;
+			border:1px solid blue;
+			border-radius: 50%;
+		}
+	}
+	
+	@keyframes change-bg2 {
+		from {
+			border:1px solid red;
+		}
+		to {
+			background-color: red;
+			border-radius: 0%;
+		}
+	}
+	#div3:hover{
+		animation-name: ratate;
+		animation-duration: 3s;
+		animation-direction:alternate;
+	}
+	
+	@keyframes rotate {
+		from {
+			transform:rotate(0deg)
+		}
+
+		to {
+			transform: rotate(45deg);
+		}
+	}
+</style>
+</head>
+
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+		<img src="images/ic_keyboard.png" class="rotate" id="div3">
+</body>
+</html>

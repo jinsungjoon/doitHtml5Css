@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>Transform</title>
+    <style>
+			.origin {
+				width: 210px;
+				height: 200px;
+				border: 1px solid black;
+				float: left;
+				margin: 40px;
+			}
+            .rotate1:hover {
+                -webkit-transform: rotatez(180deg);
+                -ms-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+            .rotate2:hover {
+                -webkit-transform: rotate(-40deg);
+                -ms-transform: rotate(-40deg);
+                -moz-transform: rotate(-40deg);
+                -o-transform: rotate(-40deg);
+                transform: rotate(-40deg);
+            }
+            .rotate{
+            	transition: all 0.3s ease-in-out;
+            }
+            .rotate:hover{
+			transform: rotate(180deg);
+            }
+		</style>
+	</head>
+	<body>		
+		<div class="origin">
+			<div class="rotate1">
+				<img src="images/fruit.jpg">
+			</div>
+		</div>
+		<div class="origin">
+			<div class="rotate2">
+				<img src="images/fruit.jpg">
+			</div>
+		</div>
+		<div >
+			<img src="images/ic_keyboard.png" class="rotate">
+		</div>
+		<div >
+			<img src="images/ic_keyboard.png" class="rotate">
+		</div>
+	</body>
+</html>

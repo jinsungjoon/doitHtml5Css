@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>판매활동</title>
+ <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width ,minimum-scale=1.0">	
+	<meta http-equiv="Expires" content="-1"> 
+	<meta http-equiv="Pragma" content="no-cache"> 
+	<meta http-equiv="Cache-Control" content="No-Cache">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
+    <link rel="apple-touch-startup-image" href="images/startup.png" media="screen and (max-device-width: 320px)">
+    <link rel="apple-touch-startup-image" href="images/startup@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	<script src="js/common.js"></script>
+<style type="text/css">
+body {
+	font-family: 굴림;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	min-width: 400px;
+}
+
+header {
+	/* 	border: 1px solid red; */
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
+
+input, select {
+	box-sizing: border-box;
+	height: 30px;
+	width: 70%;
+	display: flex
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	background-color: #555555;
+	padding: 0;
+	width: 100%;
+	top: 0;
+	padding: 5px;
+}
+
+ul li {
+	display: inline-block;
+	/* 		color:#fff; */
+	color: #ccc;
+	font-weight: 800;
+	line-height: 2.0;
+	text-align: center;
+	background: url(../res/img/tab_bar.gif) no-repeat right;
+}
+
+ul li span {
+	padding: 0 10px;
+}
+
+ul li:hover {
+	color: red;
+}
+
+
+
+.btn {
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+.btn-default {
+	color: #eee;
+	background-color: #337ab7;
+	border-color: #ccc;
+	font-weight: bold;
+	height: 43px;
+	/* 	height: 30px; */
+	/* 	box-sizing: border-box; */
+}
+
+.btn-default:active {
+	color: #aaa;
+	background-color: #ccc;
+	border-color: #ccc;
+	font-weight: bold;
+	display: inline-block;
+}
+
+#btn1 span {
+	background: url("images/ic_icon1.png") no-repeat center left;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#btn2 span {
+	background: url("images/ic_search.png") no-repeat center left;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#btn3 span {
+	background: url("images/ic_sd_card.png") no-repeat center left;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	width: 100%;
+	box-sizing: border-box;
+	table-layout: fixed;
+	word-break: break-all
+}
+
+.table-bordered {
+	border: 1px solid #ddd;
+}
+
+th {
+	/* 	background-color: #eee; */
+	/* 	background-color:#dff0d8; */
+	background-color: #d9edf7;
+	color: #31708f;
+	width: 25%;
+	border: 1px solid #ddd;
+	height: 37px;
+	font-weight: bold;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+td {
+	border: 1px solid #ddd;
+	height: 37px;
+	padding-left: 5px;
+	padding-right: 5px;
+	box-sizing: border-box;
+	word-wrap: break-word
+}
+
+.titleArea {
+	text-align: left;
+	width: 100%;
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 5px 5px 0px 5px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.titleLeft {
+	height: 30px;
+	background: url(images/ic_shopping.png) no-repeat;
+	background-position: 5px 10px;
+	padding-left: 30px;
+	padding-top: 12px;
+	font-weight: 800;
+	color: #727272;
+	display: inline-block;
+	font-size: 16px;
+	width: 20%;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.titleRight {
+	display: flex;
+	width: 80%;
+	justify-content: flex-end;
+	
+
+	/*                         flex-start */
+	/*                         flex-end */
+	/*                         center */
+	/*                         space-between */
+	/* 						   space-around */
+}
+#container {
+	padding: 0px 5px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 250px;
+	width: 100%;
+}
+
+#container table tr:nth-child(odd) {
+	/* 	border-bottom: 1px dotted red;  */
+	/* 	color: red; */
+	
+}
+
+.trOdd {
+	background-color: #fcf8e3;
+}
+
+.searchArea {
+	width: 100%;
+	border: 1px solid #ccc;
+	height: 75px;
+	margin-top: 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	display: flex;
+	padding: 5px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+label {
+	text-align: right;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	text-align: center;
+	color: #555;
+	background-color: #f9f9f9;
+	border: 1px solid #c8c8c8;
+	font-weight: bold;
+	width: 30%;
+	display: flex;
+	border-right: none;
+}
+
+	
+td[data $= "xls"] { /* 연결한 파일의 확장자가 hwp인 링크 */
+		background: url(images/excel_icon.gif) 95% center no-repeat; /* 배경으로 hwp 아이콘 표시 */
+		padding-right: 20px;
+	}
+td[data $= "hwp"] { /* 연결한 파일의 확장자가 hwp인 링크 */
+		background: url(images/hwp_icon.gif) 95% center no-repeat; /* 배경으로 hwp 아이콘 표시 */
+		padding-right: 20px;
+	}
+	
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 15px; /* Place the button at the bottom of the page */
+    right: 15px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+/*      background:url("images/ic_arrow.png") no-repeat; */
+    background:url("images/ic_vertical_top.png") no-repeat; 
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    width: 24px; 
+    height: 24px;
+}
+
+#myBtn:hover {
+    background-color: rgba(85, 85, 85, 0.3); /* Add a dark-grey background on hover */
+/*     border-radius:50%;  */
+    
+}
+</style>
+</head>
+<body id="body">
+	<header>
+		<ul>
+			<li>
+				<span>소매점정보</span>
+			</li>
+			<li>
+				<span>판매</span>
+			</li>
+			<li>
+				<span>반품</span>
+			</li>
+			<li>
+				<span>수금</span>
+			</li>
+		</ul>
+		<div class='titleArea'>
+				<div class="titleLeft">판매</div>
+				<div class="titleRight">
+					<button class="btn btn-default" id="btn1">
+						<span></span> 권고주문
+					</button>
+					<button class="btn btn-default" id="btn2">
+						<span></span> 제품검색
+					</button>
+					<button class="btn btn-default" id="btn3">
+						<span></span> 저장
+					</button>
+				</div>
+				<div class="searchArea">
+						<div style="width: 100%;display: flex">
+							<label for="date" >일자</label>
+							<input type="date" id="date" style="" required="required">
+						</div>
+						<div style="width: 100%;display: flex;margin-top: 5px">
+							<label for="car">배송차량</label>
+							<select id="car" style="">
+								<option>전체</option>
+							</select>
+						</div>
+				</div>
+				<table class="table-bordered" style="margin-top: 5px;">
+					<colgroup>
+						<col width="26%">
+						<col width="25%">
+						<col width="25%">
+						<col width="24%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>코드</th>
+							<th colspan="3">제품명</th>
+						</tr>
+						<tr>
+							<th>재고(B/E)</th>
+							<th>입력(B/E)</th>
+							<th>단가</th>
+							<th>금액</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+	</header>
+			
+		<div id="container">		
+		<table class="table-bordered">
+				<colgroup>
+						<col width="26%">
+						<col width="25%">
+						<col width="25%">
+						<col width="24%">
+					</colgroup>
+				<tr class="trOdd">
+					<td>1</td>
+					<td colspan="3">코카콜라코카콜라코카콜라코카콜라코카콜라코카콜라코카콜라코카콜라코카콜라 </td>
+				</tr>
+				<tr class="trOdd">
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td data="xls">코드코드코드코</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td colspan="3">제품명</td>
+					</tr>
+				<tr>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td data="hwp">코드</td>
+				</tr>
+				<tr class="trOdd">
+					<td>3</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr class="trOdd">
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+				</tr>
+				<tr class="trOdd">
+					<td>5</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr class="trOdd">
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+				</tr><tr>
+					<td>6</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+				</tr>
+				<tr class="trOdd">
+					<td>7</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr class="trOdd">
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td data="xls">코드코드코드코</td>
+				</tr>
+				<tr class="trOdd">
+					<td>9</td>
+					<td colspan="3">제품명</td>
+				</tr>
+				<tr class="trOdd">
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+					<td>코드</td>
+				</tr>
+			</table>
+			<br>
+		</div>
+		
+</body>
+</html>

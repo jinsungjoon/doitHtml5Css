@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<title>엘지생건로그인</title>
+<style>
+body {
+	padding: 0px 5px;
+}
+
+.logo {
+	background-image: url('images/LG.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 242px 42px;
+	height: 84px;
+}
+
+.title {
+	font-size: 17px;
+	line-height: 20px;
+	margin: 0 40px 10px;
+	text-align: center;
+	width: 80%;
+	color: #999;
+	font-weight: 600;
+}
+
+form {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+}
+
+input {
+	/* 	background: 0 0; */
+	border: 1px solid #dbdbdb;
+	box-sizing: border-box;
+	color: #262626;
+	font-size: 14px;
+	/* 	padding: 9px 8px 7px; */
+	-webkit-appearance: none;
+	display: block;
+	width: 100%;
+	height: 40px;
+}
+
+ul {
+	list-style-type: none;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+
+ul>li {
+	/* 		padding: 5px */
+	width: 100%;
+	padding-top: 5px;
+}
+
+.al-center {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.loginArea {
+	/*  		border: 1px solid red;  */
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	/*  		border: 1px solid #eee; */
+	padding: 20px 0px;
+}
+
+.row {
+	/* 		border: 1px solid blue;  */
+	width: 80%;
+	display: flex;
+	justify-content: center;
+}
+
+#btnLogin {
+	width: 100%;
+	height: 45px;
+	background-color: #c61040;
+	border: none;
+	color: #fff;
+	font-weight: 800;
+}
+
+#btnLogin:hover {
+	background-color: #666;
+}
+
+#ID {
+	background: url('images/ic_account.png') no-repeat 10px;
+	padding-left: 35px;
+	text-transform: uppercase;
+}
+
+#ID:hover, #ID:focus {
+	/* 	border: 1px solid #c61040; */
+	
+}
+
+#PASS {
+	background: url('images/ic_lock.png')  no-repeat 10px;
+	padding-left: 35px;
+}
+#ID:hover, #ID:focus {
+	/* 	border: 1px solid #c61040; */
+	
+}
+
+#save {
+	background-image: url('images/ic_radio.png');
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 24px;
+}
+
+#save2 {
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 24px;
+	background-image: url('images/ic_radio_check.png');
+	display: none;
+}
+
+.etc {
+	display: flex;
+	justify-content: center;
+	font-size: 12px;
+	color: #ccc;
+	text-align: center;
+	line-height: 24px;
+	margin: 10px 0;
+}
+
+.etc div.last {
+	width: 40%;
+}
+
+.etc div {
+	width: 30%;
+}
+
+.version {
+	text-align: center;
+	font-weight: 800;
+	color: #c61040
+}
+
+.check {
+	border: 2px solid #c61040;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: flex
+}
+
+.checkLabel {
+	display: flex;
+	line-height: 28px;
+	margin-left: 10px;
+	color: #999;
+	font-weight: 800;
+}
+.active{
+	background-color: #c61040;
+}
+footer{
+	border-top: 1px solid #c61040;
+}
+</style>
+
+</head>
+<body>
+	<header>
+		<div class='logo'>
+		</div>
+		<div class='al-center'>
+			<h2 class='title'>여러분의 건강한 삶을 지켜 드립니다.</h2>
+		</div>
+	</header>
+	<div class="content">
+		<div class="loginArea">
+			<div class='row'>
+				<input type="text" id="ID" placeholder="아이디">
+			</div>
+			<div class='row' style="padding-top:10px ">
+				<input type="password" id="PASS" placeholder="비밀번호">
+			</div>
+			<div class='row' style="padding-top:10px ">
+				<button id="btnLogin">LOGIN</button>
+			</div>
+			
+			<div class='row' style="padding-top:10px;" id="checkArea" class="">
+				<span class="check"></span><span class="checkLabel">비밀번호저장</span>
+			</div>
+		</div>
+		<div class='version'>
+			<p style="text-transform: uppercase">version 1.0</p>
+		</div>
+		<div class=etc>
+			<div>회원가입</div>
+			<div>계정찾기</div>
+			<div class=last>비밀번호 재설정</div>
+		</div>
+	</div>
+		<footer style="">
+			<div style="color: #5e6163;font-weight: 800;text-align: center;line-height: 50px">
+				Copyright ⓒ. All rights reserved.
+			</div>
+		</footer>		
+</body>
+<script>
+	$(document).ready(function(){
+		$("#checkArea").click(function(){
+			if($(".check").hasClass("active")){
+				$(".check").removeClass("active");
+			}else{
+				$(".check").addClass("active");
+			}
+		});
+	});
+</script>
+</html>
